@@ -21,7 +21,7 @@ int main(){
     do{
         printf("\n=== Gerenciador de dados ===\n");
         printf("1. Adicionar os dados\n");
-        printf("2. Exibir contatos\n");
+        printf("2. Exibir dados\n");
         printf("3. Sair\n");
         printf("Escolha uma opção: ");
             scanf("%d", &opcao);
