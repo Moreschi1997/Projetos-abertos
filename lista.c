@@ -2,15 +2,12 @@
 #include <stdlib.h>
 #include <string.h>
 /* Usando union para fazer um bloco de variaveis diferentes*/
-typedef union{
-    struct {
+
+    typedef struct {
         char nome[85];
         char numero_telefone[16];
-    } dados_basicos;
-    struct {
         char email[100];
         char cpf[12];
-    } dados_detalhados;
 } dados;
     /* Funções */
     void adicionar_dados(dados dados_cadastrados[], int *total); /* Criado a Arrays dados_cadastrados assim fazendo armazenamento do que for escrito; int *total = ponteiro */
@@ -57,20 +54,20 @@ void adicionar_dados(dados dados_cadastrados[], int *total){
     printf("\n=== Adicionar dados ===\n");
 
     printf("Digite o seu nome: ");
-    fgets(dados_cadastrados[*total].dados_basicos.nome, 85, stdin);
-    dados_cadastrados[*total].dados_basicos.nome[strcspn(dados_cadastrados[*total].dados_basicos.nome, "\n")] = '\0'; /* Contagem no índice 0 */
+    fgets(dados_cadastrados[*total].nome, 85, stdin);
+    dados_cadastrados[*total].nome[strcspn(dados_cadastrados[*total].nome, "\n")] = '\0'; /* Contagem no índice 0 */
 
     printf("Digite o seu número de telefone: ");
-    fgets(dados_cadastrados[*total].dados_basicos.numero_telefone, 16, stdin);
-    dados_cadastrados[*total].dados_basicos.numero_telefone[strcspn(dados_cadastrados[*total].dados_basicos.numero_telefone, "\n")] = '\0'; /*Contagem no índice 0*/
+    fgets(dados_cadastrados[*total].numero_telefone, 16, stdin);
+    dados_cadastrados[*total].numero_telefone[strcspn(dados_cadastrados[*total].numero_telefone, "\n")] = '\0'; /*Contagem no índice 0*/
 
     printf("Digite o e-mail: ");
-    fgets(dados_cadastrados[*total].dados_detalhados.email, 100, stdin);
-    dados_cadastrados[*total].dados_detalhados.email[strcspn(dados_cadastrados[*total].dados_detalhados.email, "\n")] = '\0';
+    fgets(dados_cadastrados[*total].email, 100, stdin);
+    dados_cadastrados[*total].email[strcspn(dados_cadastrados[*total].email, "\n")] = '\0';
 
     printf("Digite o CPF: ");
-    fgets(dados_cadastrados[*total].dados_detalhados.cpf, 12, stdin);
-    dados_cadastrados[*total].dados_detalhados.cpf[strcspn(dados_cadastrados[*total].dados_detalhados.cpf, "\n")] = '\0';
+    fgets(dados_cadastrados[*total].cpf, 12, stdin);
+    dados_cadastrados[*total].cpf[strcspn(dados_cadastrados[*total].cpf, "\n")] = '\0';
 
     (*total)++;
     printf("Dados adicionados com sucesso!\n");
@@ -85,10 +82,10 @@ void adicionar_dados(dados dados_cadastrados[], int *total){
         
         for(int i = 0; i < total; i++){
             printf("Registro: %d\n", i +1);
-            printf("Nome: %s\n", dados_cadastrados[i].dados_basicos.nome);
-            printf("Número: %s\n", dados_cadastrados[i].dados_basicos.numero_telefone);
-            printf("e-mail: %s\n", dados_cadastrados[i].dados_detalhados.email);
-            printf("CPF: %s\n", dados_cadastrados[i].dados_detalhados.cpf);
+            printf("Nome: %s\n", dados_cadastrados[i].nome);
+            printf("Número: %s\n", dados_cadastrados[i].numero_telefone);
+            printf("e-mail: %s\n", dados_cadastrados[i].email);
+            printf("CPF: %s\n", dados_cadastrados[i].cpf);
 
         }
     }
