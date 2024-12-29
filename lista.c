@@ -17,7 +17,7 @@ int main(){
     dados dados_cadastrados[100];
     int totaldados = 0; /*Criando um contador*/
     int opcao;
-    /* Usado a lógica do-while */
+    /* Usado a lógica do-while para fazer a seleção da opção, enqunto for diferente da opção 3*/
     do{
         printf("\n=== Gerenciador de dados ===\n");
         printf("1. Adicionar os dados\n");
@@ -54,11 +54,11 @@ void adicionar_dados(dados dados_cadastrados[], int *total){
     printf("\n=== Adicionar dados ===\n");
 
     printf("Digite o seu nome: ");
-    fgets(dados_cadastrados[*total].nome, 85, stdin);
+    fgets(dados_cadastrados[*total].nome, 85, stdin); /* fgets e usado no lugar do scanf*/
     dados_cadastrados[*total].nome[strcspn(dados_cadastrados[*total].nome, "\n")] = '\0'; /* Contagem no índice 0 */
 
     printf("Digite o seu número de telefone: ");
-    fgets(dados_cadastrados[*total].numero_telefone, 16, stdin);
+    fgets(dados_cadastrados[*total].numero_telefone, 16, stdin); /* fgets e usado no lugar do scanf*/
     dados_cadastrados[*total].numero_telefone[strcspn(dados_cadastrados[*total].numero_telefone, "\n")] = '\0'; /*Contagem no índice 0*/
 
     printf("Digite o e-mail: ");
@@ -79,7 +79,7 @@ void adicionar_dados(dados dados_cadastrados[], int *total){
             printf("nenhum dado cadastrado\n");
             return;
             }
-        
+        /* "i" e usado como contador na lógica determinística*/
         for(int i = 0; i < total; i++){
             printf("Registro: %d\n", i +1);
             printf("Nome: %s\n", dados_cadastrados[i].nome);
