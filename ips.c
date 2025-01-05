@@ -53,8 +53,8 @@ int main(){
     /* Usado a lógica "for" para ter um determinado valor, usando "i" como contador e o valor máximo de "i" será  10  */
 
     for(int i = 0; i <= 10; i++){
-    unsigned int ip;
-    ip = gerar_ip(classes); 
+    unsigned int ip; /*  Variavel para armazenar o IP gerado*/
+    ip = gerar_ip(classes); /* chamada da função Gerar ip a cada iteração */
         if(ip != 0){
             printf("IP gerado: ");
             exibir_ip(ip);
