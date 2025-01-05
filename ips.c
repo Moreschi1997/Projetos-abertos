@@ -18,7 +18,7 @@ unsigned int gerar_ip(char classes){
     unsigned int ip = 0;
     /* Endereços de classe A entre 1.0.0.0 a 126.255.255.255 */
         if(classes == 'A'){
-            ip |= (rand() % 126 + 1) << 24; /* Valores no intervalo de 1 a 126 */ /* "|=" Operador simplificado OR para guardar bit no octeto */
+            ip |= (rand() % 126 + 1) << 24; /* Valores no intervalo de 1 a 126 */ /* "|=" Operador OR atribui o resultado ao ip */
             ip |= (rand() % 256) << 16;  /* Valores no intervalo de 0 a 255 */
             ip |= (rand() % 256) << 8; /* Valores no intervalo de 0 a 255*/
             ip |= (rand() % 256);   
