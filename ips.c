@@ -18,10 +18,10 @@ unsigned int gerar_ip(char classes){
     unsigned int ip = 0;
     /* Endereços de classe A entre 1.0.0.0 a 126.255.255.255 */
         if(classes == 'A'){
-            ip |= (rand() % 126 + 1) << 24; /* Valores no intervalo de 1 a 126 */
+            ip |= (rand() % 126 + 1) << 24; /* Valores no intervalo de 1 a 126 */ /* "|=" Operador simplificado OR para guardar bit no octeto */
             ip |= (rand() % 256) << 16;  /* Valores no intervalo de 0 a 255 */
             ip |= (rand() % 256) << 8; /* Valores no intervalo de 0 a 255*/
-            ip |= (rand() % 256);
+            ip |= (rand() % 256);   
         }
         else if(classes == 'B'){
             ip |= (rand() % 64 + 128) << 24; /* Valores no intervalo de 128 a 191*/
@@ -53,7 +53,7 @@ int main(){
     /* Usado a lógica "for" para ter um determinado valor, usando "i" como contador e o valor máximo de "i" será  10  */
 
     for(int i = 0; i <= 10; i++){
-    unsigned int ip; /*  Variavel para armazenar o IP gerado*/
+    unsigned int ip; /*  Variável para armazenar o IP gerado*/
     ip = gerar_ip(classes); /* chamada da função Gerar ip a cada iteração */
         if(ip != 0){
             printf("IP gerado: ");
