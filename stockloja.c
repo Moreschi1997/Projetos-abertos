@@ -1,4 +1,4 @@
-/* Bom esse projeto eu vou usar NOSQL como principal ideia de para criar o BD de uma loja */
+/* Bom esse projeto eu vou usar NOSQL como principal ideia, para criar o BD de uma loja */
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
@@ -20,17 +20,22 @@ void cadastroProdutos(idproduto *produtos){
     fgets(produtos-> id_codProduto, sizeof(produtos-> id_codProduto), stdin);
     produtos-> id_codProduto[strcspn(produtos->id_codProduto, "\n")] = '\0';
     /* Armazenar nomeProduto */
+
     printf("Nome do Produto.:  ");
     fgets(produtos-> nomeProduto, sizeof(produtos-> nomeProduto), stdin); /* Lê os produtos e armazena na estrutura, incluindo a quebra de linha '\n' */
     produtos-> nomeProduto[strcspn(produtos-> nomeProduto, "\n")] = '\0'; /* Após a leitura ele remove o caractere '\n', deixado pelo fgets*/
+    
     /* Armazena o quantidade de produtos em stock */
+
     printf("Quantidade de produtos.: ");
     scanf("%d", &produtos-> quantidadeStock);
-    getchar();
+    getchar(); /* Limpar o buffer */
+
     /* Valores do produto  */
+
     printf("Digitar o valor.: ");
     scanf("%f", &produtos-> valorProduto);
-    getchar();
+    getchar(); /* Limpar o buffer */
 }
 
 /* Função para armazenar produtos, usando dois tipos de ponteiros */
